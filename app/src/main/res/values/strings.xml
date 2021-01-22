@@ -8,4 +8,11 @@
     <string name="breaking_news">Breaking news</string>
     <string name="saved_news">Saved news</string>
     <string name="search_news">Search news</string>
+
+    <!-- Article Fragment -->
+    <string name="news_saved">News saved successfully</string>
+
+    <!-- Saved News Fragment -->
+    <string name="news_deleted">News deleted successfully</string>
+    <string name="undo">Undo</string>
 </resources>

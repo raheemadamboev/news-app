@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import xyz.teamgravity.newsapp.api.Resource
+import xyz.teamgravity.newsapp.model.ArticleModel
 import xyz.teamgravity.newsapp.model.NewsResponseModel
 
 class NewsViewModel @ViewModelInject constructor(
@@ -56,4 +57,17 @@ class NewsViewModel @ViewModelInject constructor(
             Resource.Error(response.message())
         }
     }
+
+    // insert news
+    fun insertNews(article: ArticleModel) = viewModelScope.launch {
+        repository.insertNews(article)
+    }
+
+    // delete news
+    fun deleteNews(article: ArticleModel) = viewModelScope.launch {
+        repository.deleteNews(article)
+    }
+
+    // get saved news
+    fun getNews() = repository.getNews()
 }

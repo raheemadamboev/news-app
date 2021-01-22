@@ -8,7 +8,9 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import xyz.teamgravity.newsapp.R
 import xyz.teamgravity.newsapp.databinding.FragmentArticleBinding
 import xyz.teamgravity.newsapp.viewmodel.NewsViewModel
 
@@ -36,6 +38,11 @@ class ArticleFragment : Fragment() {
             webView.apply {
                 webViewClient = WebViewClient()
                 loadUrl(args.article.url)
+            }
+
+            insertB.setOnClickListener {
+                viewModel.insertNews(args.article)
+                Snackbar.make(view, R.string.news_saved, Snackbar.LENGTH_SHORT).show()
             }
         }
     }
