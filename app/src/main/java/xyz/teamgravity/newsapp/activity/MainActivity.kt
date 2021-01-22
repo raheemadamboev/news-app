@@ -1,6 +1,7 @@
 package xyz.teamgravity.newsapp.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -30,6 +31,14 @@ class MainActivity : AppCompatActivity() {
 
             // do not respond if it again selected
             bottomNavigationView.setOnNavigationItemReselectedListener { }
+
+            // hide bottom navigation view
+            navController.addOnDestinationChangedListener { _, destination, _ ->
+                when(destination.id) {
+                    R.id.articleFragment -> bottomNavigationView.visibility = View.GONE
+                    else -> bottomNavigationView.visibility = View.VISIBLE
+                }
+            }
         }
     }
 }

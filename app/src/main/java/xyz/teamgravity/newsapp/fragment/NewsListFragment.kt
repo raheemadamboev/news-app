@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import xyz.teamgravity.newsapp.api.Resource
 import xyz.teamgravity.newsapp.databinding.FragmentNewsListBinding
@@ -63,7 +64,7 @@ class NewsListFragment : Fragment(), NewsAdapter.OnNewsListener {
 
     // news click
     override fun onNewsClick(article: ArticleModel) {
-
+        findNavController().navigate(NewsListFragmentDirections.actionNewsListFragmentToArticleFragment(article))
     }
 
     override fun onDestroyView() {

@@ -8,6 +8,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -83,7 +84,7 @@ class SearchNewsFragment : Fragment(), NewsAdapter.OnNewsListener {
 
     // news card click
     override fun onNewsClick(article: ArticleModel) {
-
+        findNavController().navigate(SearchNewsFragmentDirections.actionSearchNewsFragmentToArticleFragment(article))
     }
 
     override fun onDestroyView() {
