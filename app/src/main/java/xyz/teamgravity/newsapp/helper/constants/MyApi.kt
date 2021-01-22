@@ -1,6 +1,6 @@
 package xyz.teamgravity.newsapp.helper.constants
 
-object Constants {
+object MyApi {
 
     /**
      * News api key

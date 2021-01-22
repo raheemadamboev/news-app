@@ -1,5 +1,7 @@
 package xyz.teamgravity.newsapp.injection
 
+import android.app.Application
+import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -9,7 +11,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import xyz.teamgravity.newsapp.api.NewsApi
-import xyz.teamgravity.newsapp.helper.constants.Constants
+import xyz.teamgravity.newsapp.helper.constants.MyApi
+import xyz.teamgravity.newsapp.helper.constants.MyDatabase
+import xyz.teamgravity.newsapp.viewmodel.NewsDatabase
 import javax.inject.Singleton
 
 @Module
@@ -19,7 +23,7 @@ object AppModule {
     @Singleton
     @Provides
     fun provideRetrofit(client: OkHttpClient): Retrofit =
-        Retrofit.Builder().baseUrl(Constants.NEWS_BASE_URL)
+        Retrofit.Builder().baseUrl(MyApi.NEWS_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
@@ -38,5 +42,13 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideNewsApi(retrofit: Retrofit): NewsApi  = retrofit.create(NewsApi::class.java)
+    fun provideNewsApi(retrofit: Retrofit): NewsApi = retrofit.create(NewsApi::class.java)
+
+    @Singleton
+    @Provides
+    fun provideNewsDatabase(app: Application) = Room.databaseBuilder(app, NewsDatabase::class.java, MyDatabase.DATABASE_NAME).build()
+
+    @Singleton
+    @Provides
+    fun provideNewsDao(db: NewsDatabase) = db.newsDao()
 }
