@@ -41,7 +41,6 @@ class NewsListFragment : Fragment(), NewsAdapter.OnNewsListener {
         binding.apply {
             recyclerView.adapter = adapter
 
-
             viewModel.breakingNews.observe(viewLifecycleOwner) { response ->
                 when (response) {
                     is Resource.Success -> {

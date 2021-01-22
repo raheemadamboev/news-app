@@ -3,6 +3,7 @@ package xyz.teamgravity.newsapp.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import xyz.teamgravity.newsapp.helper.constants.MyDatabase
+import java.io.Serializable
 
 @Entity(tableName = MyDatabase.ARTICLE_TABLE)
 data class ArticleModel(
@@ -18,4 +19,4 @@ data class ArticleModel(
 
     @PrimaryKey(autoGenerate = true)
     val _id: Long? = null
-)
+) : Serializable

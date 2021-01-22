@@ -16,6 +16,9 @@ class NewsViewModel @ViewModelInject constructor(
     val breakingNews: MutableLiveData<Resource<NewsResponseModel>> = MutableLiveData()
     var breakingNewsPage = 1
 
+    val searchNews: MutableLiveData<Resource<NewsResponseModel>> = MutableLiveData()
+    var searchNewsPage = 1
+
     // get breaking news from api, network request
     fun getBreakingNews(countryCode: String = "us") = viewModelScope.launch {
         // loading
@@ -28,6 +31,18 @@ class NewsViewModel @ViewModelInject constructor(
         breakingNews.postValue(handleBreakingNewsResponse(response))
     }
 
+
+    // search news from api, network request
+    fun searchNews(query: String) = viewModelScope.launch {
+        // loading
+        searchNews.postValue(Resource.Loading())
+
+        // requesting
+        val response = repository.searchForNews(query, searchNewsPage)
+
+        // post value
+        searchNews.postValue(handleBreakingNewsResponse(response))
+    }
 
     // convert response to resource
     private fun handleBreakingNewsResponse(response: Response<NewsResponseModel>): Resource<NewsResponseModel> {
