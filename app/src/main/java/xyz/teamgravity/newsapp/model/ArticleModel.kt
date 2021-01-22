@@ -7,7 +7,7 @@ import xyz.teamgravity.newsapp.helper.constants.MyDatabase
 @Entity(tableName = MyDatabase.ARTICLE_TABLE)
 data class ArticleModel(
 
-    val author: Any,
+    val author: String,
     val content: String,
     val description: String,
     val publishedAt: String,

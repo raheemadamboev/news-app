@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import xyz.teamgravity.newsapp.api.Resource
 import xyz.teamgravity.newsapp.databinding.FragmentNewsListBinding
 import xyz.teamgravity.newsapp.helper.adapter.NewsAdapter
@@ -13,6 +14,7 @@ import xyz.teamgravity.newsapp.helper.extensions.exhaustive
 import xyz.teamgravity.newsapp.model.ArticleModel
 import xyz.teamgravity.newsapp.viewmodel.NewsViewModel
 
+@AndroidEntryPoint
 class NewsListFragment : Fragment(), NewsAdapter.OnNewsListener {
 
     private var _binding: FragmentNewsListBinding? = null
@@ -32,7 +34,7 @@ class NewsListFragment : Fragment(), NewsAdapter.OnNewsListener {
         super.onViewCreated(view, savedInstanceState)
 
         // request
-        viewModel.getBreakingNews()
+        viewModel.getBreakingNews("us")
 
         adapter = NewsAdapter(this)
 

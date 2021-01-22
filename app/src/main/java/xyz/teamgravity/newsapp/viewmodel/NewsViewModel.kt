@@ -17,7 +17,7 @@ class NewsViewModel @ViewModelInject constructor(
     var breakingNewsPage = 1
 
     // get breaking news from api, network request
-    fun getBreakingNews(countryCode: String = "uz") = viewModelScope.launch {
+    fun getBreakingNews(countryCode: String = "us") = viewModelScope.launch {
         // loading
         breakingNews.postValue(Resource.Loading())
 

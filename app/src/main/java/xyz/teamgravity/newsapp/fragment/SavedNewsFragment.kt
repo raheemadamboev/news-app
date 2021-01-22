@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import xyz.teamgravity.newsapp.databinding.FragmentSavedNewsBinding
 import xyz.teamgravity.newsapp.viewmodel.NewsViewModel
 
+@AndroidEntryPoint
 class SavedNewsFragment : Fragment() {
 
     private var _binding: FragmentSavedNewsBinding? = null
