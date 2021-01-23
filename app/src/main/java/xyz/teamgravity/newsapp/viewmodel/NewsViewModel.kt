@@ -31,6 +31,10 @@ class NewsViewModel @ViewModelInject constructor(
     private var breakingNewsResponse: NewsResponseModel? = null
     private var searchNewsResponse: NewsResponseModel? = null
 
+    init {
+        getBreakingNews()
+    }
+
     // get breaking news from api, network request
     fun getBreakingNews(countryCode: String = "us") = viewModelScope.launch {
         safeBreakingNewsCall(countryCode)

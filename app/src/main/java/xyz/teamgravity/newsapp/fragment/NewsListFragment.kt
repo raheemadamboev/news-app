@@ -47,9 +47,6 @@ class NewsListFragment : Fragment(), NewsAdapter.OnNewsListener {
     }
 
     private fun recyclerView() {
-        // request
-        viewModel.getBreakingNews("us")
-
         adapter = NewsAdapter(this)
 
         binding.apply {

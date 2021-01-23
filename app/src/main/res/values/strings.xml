@@ -11,6 +11,7 @@
 
     <!-- Article Fragment -->
     <string name="news_saved">News saved successfully</string>
+    <string name="article">Article</string>
 
     <!-- Saved News Fragment -->
     <string name="news_deleted">News deleted successfully</string>

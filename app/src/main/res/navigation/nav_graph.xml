@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/newsListFragment"
         android:name="xyz.teamgravity.newsapp.fragment.NewsListFragment"
-        android:label="fragment_news_list"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_news_list">
         <action
             android:id="@+id/action_newsListFragment_to_articleFragment"
@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/savedNewsFragment"
         android:name="xyz.teamgravity.newsapp.fragment.SavedNewsFragment"
-        android:label="fragment_saved_news"
+        android:label="@string/saved_news"
         tools:layout="@layout/fragment_saved_news">
         <action
             android:id="@+id/action_savedNewsFragment_to_articleFragment"
@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/searchNewsFragment"
         android:name="xyz.teamgravity.newsapp.fragment.SearchNewsFragment"
-        android:label="fragment_search_news"
+        android:label="@string/search_news"
         tools:layout="@layout/fragment_search_news">
         <action
             android:id="@+id/action_searchNewsFragment_to_articleFragment"
@@ -47,8 +47,8 @@
     <fragment
         android:id="@+id/articleFragment"
         android:name="xyz.teamgravity.newsapp.fragment.ArticleFragment"
-        android:label="fragment_article"
-        tools:layout="@layout/fragment_article" >
+        android:label="@string/article"
+        tools:layout="@layout/fragment_article">
         <argument
             android:name="article"
             app:argType="xyz.teamgravity.newsapp.model.ArticleModel" />
