@@ -11,4 +11,9 @@ object MyApi {
      * News api base url
      */
     const val NEWS_BASE_URL = "https://newsapi.org"
+
+    /**
+     * Query page size
+     */
+    const val QUERY_PAGE_SIZE = 20
 }

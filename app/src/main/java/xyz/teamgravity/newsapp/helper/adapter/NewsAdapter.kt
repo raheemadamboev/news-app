@@ -36,7 +36,7 @@ class NewsAdapter(private val listener: OnNewsListener) : ListAdapter<ArticleMod
                 Glide.with(imageI)
                     .load(model.urlToImage)
                     .into(imageI)
-                sourceT.text = model.source.name
+                sourceT.text = model.source?.name
                 titleT.text = model.title
                 descriptionT.text = model.description
                 timestampT.text = model.publishedAt

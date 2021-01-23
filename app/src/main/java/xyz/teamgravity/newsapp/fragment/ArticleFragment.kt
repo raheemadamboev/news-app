@@ -37,7 +37,7 @@ class ArticleFragment : Fragment() {
 
             webView.apply {
                 webViewClient = WebViewClient()
-                loadUrl(args.article.url)
+                loadUrl(args.article.url!!)
             }
 
             insertB.setOnClickListener {

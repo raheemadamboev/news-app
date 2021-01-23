@@ -20,6 +20,9 @@ class NewsViewModel @ViewModelInject constructor(
     val searchNews: MutableLiveData<Resource<NewsResponseModel>> = MutableLiveData()
     var searchNewsPage = 1
 
+    var breakingNewsResponse: NewsResponseModel? = null
+    var searchNewsResponse: NewsResponseModel? = null
+
     // get breaking news from api, network request
     fun getBreakingNews(countryCode: String = "us") = viewModelScope.launch {
         // loading
@@ -42,14 +45,49 @@ class NewsViewModel @ViewModelInject constructor(
         val response = repository.searchForNews(query, searchNewsPage)
 
         // post value
-        searchNews.postValue(handleBreakingNewsResponse(response))
+        searchNews.postValue(handleSearchNewsResponse(response))
     }
 
     // convert response to resource
     private fun handleBreakingNewsResponse(response: Response<NewsResponseModel>): Resource<NewsResponseModel> {
         return if (response.isSuccessful) {
             if (response.body() != null) {
-                Resource.Success(response.body()!!)
+
+                // increment page
+                breakingNewsPage++
+
+                // if response null get response
+                if (breakingNewsResponse == null) {
+                    breakingNewsResponse = response.body()
+                } else {
+                    breakingNewsResponse?.articles?.addAll(response.body()!!.articles)
+                }
+
+                Resource.Success(breakingNewsResponse!!)
+            } else {
+                Resource.Error("Response body is null!")
+            }
+        } else {
+            Resource.Error(response.message())
+        }
+    }
+
+    // convert response to resource
+    private fun handleSearchNewsResponse(response: Response<NewsResponseModel>): Resource<NewsResponseModel> {
+        return if (response.isSuccessful) {
+            if (response.body() != null) {
+
+                // increment page
+                searchNewsPage++
+
+                // if response null get response
+                if (searchNewsResponse == null) {
+                    searchNewsResponse = response.body()
+                } else {
+                    searchNewsResponse?.articles?.addAll(response.body()!!.articles)
+                }
+
+                Resource.Success(searchNewsResponse!!)
             } else {
                 Resource.Error("Response body is null!")
             }
