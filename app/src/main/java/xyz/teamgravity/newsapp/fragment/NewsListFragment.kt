@@ -43,6 +43,10 @@ class NewsListFragment : Fragment(), NewsAdapter.OnNewsListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        recyclerView()
+    }
+
+    private fun recyclerView() {
         // request
         viewModel.getBreakingNews("us")
 
@@ -52,6 +56,7 @@ class NewsListFragment : Fragment(), NewsAdapter.OnNewsListener {
             recyclerView.adapter = adapter
             recyclerView.addOnScrollListener(onScrollListener)
 
+            // events
             viewModel.breakingNews.observe(viewLifecycleOwner) { response ->
                 when (response) {
                     is Resource.Success -> {
