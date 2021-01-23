@@ -33,17 +33,26 @@ class ArticleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.apply {
+        webView()
+        button()
+    }
 
-            webView.apply {
-                webViewClient = WebViewClient()
-                loadUrl(args.article.url!!)
-            }
+    private fun webView() {
+        binding.webView.apply {
+            webViewClient = WebViewClient()
+            loadUrl(args.article.url)
+        }
+    }
 
-            insertB.setOnClickListener {
-                viewModel.insertNews(args.article)
-                Snackbar.make(view, R.string.news_saved, Snackbar.LENGTH_SHORT).show()
-            }
+    private fun button() {
+        onInsert()
+    }
+
+    // insert button
+    private fun onInsert() {
+        binding.insertB.setOnClickListener {
+            viewModel.insertNews(args.article)
+            Snackbar.make(requireView(), R.string.news_saved, Snackbar.LENGTH_SHORT).show()
         }
     }
 
