@@ -53,6 +53,11 @@ class SearchNewsFragment : Fragment(), NewsAdapter.OnNewsListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        recyclerView()
+        button()
+    }
+
+    private fun recyclerView() {
         adapter = NewsAdapter(this)
 
         binding.apply {
@@ -88,8 +93,16 @@ class SearchNewsFragment : Fragment(), NewsAdapter.OnNewsListener {
                     }
                 }.exhaustive
             }
+        }
+    }
 
-            // search
+    private fun button() {
+        onSearch()
+    }
+
+    // search field
+    private fun onSearch() {
+        binding.apply {
             var job: Job? = null
             searchField.addTextChangedListener { query ->
                 job?.cancel()

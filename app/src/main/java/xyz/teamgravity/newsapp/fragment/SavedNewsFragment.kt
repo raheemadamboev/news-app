@@ -67,6 +67,7 @@ class SavedNewsFragment : Fragment(), NewsAdapter.OnNewsListener {
                 }
             }).attachToRecyclerView(recyclerView)
 
+            // observer news
             viewModel.getNews().observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
