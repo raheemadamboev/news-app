@@ -64,7 +64,7 @@ class SearchNewsFragment : Fragment(), NewsAdapter.OnNewsListener {
                         progressBar.visibility = View.INVISIBLE
                         isLoading = false
                         response.data?.let {
-                            adapter.submitList(it.articles)
+                            adapter.submitList(it.articles.toList())
 
                             val totalResult = it.totalResults / MyApi.QUERY_PAGE_SIZE + 2
                             isLastPage = viewModel.searchNewsPage == totalResult
