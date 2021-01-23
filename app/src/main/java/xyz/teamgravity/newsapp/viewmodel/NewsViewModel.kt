@@ -107,7 +107,10 @@ class NewsViewModel @ViewModelInject constructor(
                 Resource.Error("Response body is null!")
             }
         } else {
-            Resource.Error(response.message())
+            when(response.code()) {
+                429 -> Resource.Error("API is in trial mode, too many requests try again later")
+                else -> Resource.Error(response.message())
+            }
         }
     }
 
@@ -131,7 +134,10 @@ class NewsViewModel @ViewModelInject constructor(
                 Resource.Error("Response body is null!")
             }
         } else {
-            Resource.Error(response.message())
+            when(response.code()) {
+                429 -> Resource.Error("API is in trial mode, too many requests try again later")
+                else -> Resource.Error(response.message())
+            }
         }
     }
 
