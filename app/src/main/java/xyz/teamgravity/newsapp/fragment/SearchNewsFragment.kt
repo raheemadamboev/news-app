@@ -78,7 +78,7 @@ class SearchNewsFragment : Fragment(), NewsAdapter.OnNewsListener {
                         progressBar.visibility = View.INVISIBLE
                         isLoading = false
                         response.message?.let {
-                            Snackbar.make(view, it, Snackbar.LENGTH_LONG).show()
+                            Snackbar.make(parentLayout, it, Snackbar.LENGTH_LONG).show()
                         }
                     }
 

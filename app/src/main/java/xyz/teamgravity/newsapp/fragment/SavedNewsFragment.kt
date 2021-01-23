@@ -56,7 +56,7 @@ class SavedNewsFragment : Fragment(), NewsAdapter.OnNewsListener {
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     val article = adapter.currentList[viewHolder.adapterPosition]
                     viewModel.deleteNews(article)
-                    Snackbar.make(view, R.string.news_deleted, Snackbar.LENGTH_LONG)
+                    Snackbar.make(parentLayout, R.string.news_deleted, Snackbar.LENGTH_LONG)
                         .setAction(R.string.undo) {
                             viewModel.insertNews(article)
                         }.show()
