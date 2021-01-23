@@ -14,6 +14,6 @@ interface NewsDao {
     @Delete
     suspend fun delete(article: ArticleModel)
 
-    @Query("SELECT * FROM ${MyDatabase.ARTICLE_TABLE} ORDER BY _id DESC")
+    @Query("SELECT * FROM ${MyDatabase.ARTICLE_TABLE}")
     fun getNews(): LiveData<List<ArticleModel>>
 }

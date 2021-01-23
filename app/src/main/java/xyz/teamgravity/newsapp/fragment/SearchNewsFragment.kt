@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -76,7 +77,9 @@ class SearchNewsFragment : Fragment(), NewsAdapter.OnNewsListener {
                     is Resource.Error -> {
                         progressBar.visibility = View.INVISIBLE
                         isLoading = false
-                        response.message?.let { println("debug: $it") }
+                        response.message?.let {
+                            Snackbar.make(view, it, Snackbar.LENGTH_LONG).show()
+                        }
                     }
 
                     is Resource.Loading -> {

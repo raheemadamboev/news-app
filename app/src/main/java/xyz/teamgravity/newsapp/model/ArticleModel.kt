@@ -14,9 +14,9 @@ data class ArticleModel(
     val publishedAt: String?,
     val source: SourceModel?,
     val title: String?,
-    val url: String?,
-    val urlToImage: String?,
 
-    @PrimaryKey(autoGenerate = true)
-    val _id: Long? = null
+    @PrimaryKey(autoGenerate = false)
+    val url: String = "noUrl",
+
+    val urlToImage: String?
 ) : Serializable

@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import xyz.teamgravity.newsapp.api.Resource
 import xyz.teamgravity.newsapp.databinding.FragmentNewsListBinding
@@ -69,7 +70,9 @@ class NewsListFragment : Fragment(), NewsAdapter.OnNewsListener {
                     is Resource.Error -> {
                         progressBar.visibility = View.INVISIBLE
                         isLoading = false
-                        response.message?.let { println("debug: $it") }
+                        response.message?.let {
+                            Snackbar.make(view, it, Snackbar.LENGTH_LONG).show()
+                        }
                     }
 
                     is Resource.Loading -> {

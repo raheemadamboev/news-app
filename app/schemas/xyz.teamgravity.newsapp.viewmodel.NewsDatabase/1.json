@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "9cc92c455822bb6b2e3dde1fc7d59610",
+    "identityHash": "740982b4f66cd887f7383a861324f269",
     "entities": [
       {
         "tableName": "article_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`author` TEXT, `content` TEXT, `description` TEXT, `publishedAt` TEXT, `source` TEXT, `title` TEXT, `url` TEXT, `urlToImage` TEXT, `_id` INTEGER PRIMARY KEY AUTOINCREMENT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`author` TEXT, `content` TEXT, `description` TEXT, `publishedAt` TEXT, `source` TEXT, `title` TEXT, `url` TEXT NOT NULL, `urlToImage` TEXT, PRIMARY KEY(`url`))",
         "fields": [
           {
             "fieldPath": "author",
@@ -48,26 +48,20 @@
             "fieldPath": "url",
             "columnName": "url",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "urlToImage",
             "columnName": "urlToImage",
             "affinity": "TEXT",
             "notNull": false
-          },
-          {
-            "fieldPath": "_id",
-            "columnName": "_id",
-            "affinity": "INTEGER",
-            "notNull": false
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "_id"
+            "url"
           ],
-          "autoGenerate": true
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
@@ -76,7 +70,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9cc92c455822bb6b2e3dde1fc7d59610')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '740982b4f66cd887f7383a861324f269')"
     ]
   }
 }
