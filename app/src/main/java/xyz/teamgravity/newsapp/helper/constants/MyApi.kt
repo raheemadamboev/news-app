@@ -5,7 +5,7 @@ object MyApi {
     /**
      * News api key
      */
-    const val NEWS_API_KEY = TODO()
+    const val NEWS_API_KEY = TODO("Assign your NEWS API KEY here")
 
     /**
      * News api base url
