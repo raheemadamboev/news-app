@@ -112,7 +112,7 @@ class NewsViewModel @ViewModelInject constructor(
             }
         } else {
             when(response.code()) {
-                429 -> Resource.Error("API is in trial mode, too many requests try again later")
+                429 -> Resource.Error("You made too many requests within a window of time and have been rate limited. Back off for a while")
                 else -> Resource.Error(response.message())
             }
         }
@@ -139,7 +139,7 @@ class NewsViewModel @ViewModelInject constructor(
             }
         } else {
             when(response.code()) {
-                429 -> Resource.Error("API is in trial mode, too many requests try again later")
+                429 -> Resource.Error("You made too many requests within a window of time and have been rate limited. Back off for a while")
                 else -> Resource.Error(response.message())
             }
         }
