@@ -36,6 +36,10 @@ class SavedNewsFragment : Fragment(), NewsAdapter.OnNewsListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        recyclerView()
+    }
+
+    private fun recyclerView() {
         adapter = NewsAdapter(this)
 
         binding.apply {
