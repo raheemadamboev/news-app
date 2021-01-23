@@ -36,7 +36,6 @@ class NewsViewModel @ViewModelInject constructor(
         safeBreakingNewsCall(countryCode)
     }
 
-
     // search news from api, network request
     fun searchNews(query: String) = viewModelScope.launch {
         safeSearchNewsCall(query)
