@@ -1,0 +1,3 @@
+- in order to get data from API it is recommended to add Resource class
+- inherit from Serializable() in data class to send complex objects in fragments
+- you can add scrollListener to recyclerview
