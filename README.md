@@ -12,7 +12,7 @@ API is in free mode, so it can stop sending news if request limit is meet. If so
 
 **Screenshots:**
 
-<img src="https://i.imgur.com/ID6t64v.jpg" alt="Italian Trulli" width="200" height="434"> <img src="https://i.imgur.com/HsFkNBt.jpg" alt="Italian Trulli" width="200" height="434"> <img src="https://i.imgur.com/PR9IQ0g.jpg" alt="Italian Trulli" width="200" height="434"> <img src="https://i.imgur.com/DrR27Cr.jpg" alt="Italian Trulli" width="200" height="434">
+<img src="https://i.imgur.com/pltB7j9.jpg" alt="Italian Trulli" width="200" height="434"> <img src="https://i.imgur.com/1d0jEga.jpg" alt="Italian Trulli" width="200" height="434"> <img src="https://i.imgur.com/NxUCnGO.jpg" alt="Italian Trulli" width="200" height="434"> <img src="https://i.imgur.com/oALG2CI.jpg" alt="Italian Trulli" width="200" height="434">
 
 **Do not forget to add your NEWS API KEY to MyApi object in order to use code**
 
