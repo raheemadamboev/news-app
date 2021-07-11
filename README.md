@@ -5,7 +5,7 @@ Simple app to read news and save them to read later
 
 <a href="https://github.com/raheemadamboev/news-app/blob/master/app-debug.apk">Demo app</a>
 
-This is app is to read news. News can be saved to database. News are from <a href="https://newsapi.org/">News API</a>. You can search for news and pagination is properly handled. App is in MVVM framework so it can resist configuration change. Also Jetpack Navigation Component and Hilt Dependency Injection is used. ViewBinding for views. Clean Architecture.
+This is app is to read news. News can be saved to database. News are from <a href="https://newsapi.org/">News API</a>. You can search for news and pagination is properly handled. App is in MVVM framework so it can resist configuration change. Also Jetpack Navigation Component and Hilt Dependency Injection is used. ViewBinding for views. 
 API is in free mode, so it can stop sending news if request limit is meet. If so try again later. I removed my API Key from code so make sure to insert yours if you want to use code.
 
 <img src="https://i.imgur.com/vyvzCjE.png" alt="Italian Trulli" width="200" height="200">
