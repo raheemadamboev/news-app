@@ -1,5 +1,5 @@
 # news-app
-Simple app to read news and save them to read later
+Simple app to read news and save them to read later 
 
 **News**
 
